@@ -1,0 +1,6 @@
+---
+- name: "Create {{ docker.volume_path}}/influxdb directory"
+  file:
+    path: "{{ docker.volume_path }}/influxdb"
+    state: directory
+  become: True

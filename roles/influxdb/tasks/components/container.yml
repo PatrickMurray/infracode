@@ -1,0 +1,20 @@
+---
+- name: Create influxdb docker container
+  docker_container:
+    name: influxdb
+    image: influxdb
+    state: started
+    restart: True
+    ports:
+      - "8086:8086"
+    env:
+      INFLUXDB_DB: "{{ influxdb.database }}"
+      INFLUXDB_ADMIN_USER: "{{ influxdb.admin.username }}"
+      INFLUXDB_ADMIN_PASSWORD: "{{ influxdb.admin.password }}"
+      INFLUXDB_READ_USER: "{{ influxdb.read.username }}"
+      INFLUXDB_READ_PASSWORD: "{{ influxdb.read.password }}"
+      INFLUXDB_WRITE_USER: "{{ influxdb.write.username }}"
+      INFLUXDB_WRITE_PASSWORD: "{{ influxdb.write.password }}"
+    volumes:
+      - "{{ docker.volume_path }}/influxdb:/var/lib/influxdb"
+  become: True

@@ -1,5 +1,17 @@
 ---
+- hosts: nuc
+  var_files:
+    - secrets.yml
+  roles:
+    - common
+    - docker
+    - influxdb
+#    - grafana
+
+
 - hosts: cluster
+  var_files:
+    - secrets.yml
   roles:
     - common
     - docker
