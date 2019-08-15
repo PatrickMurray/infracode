@@ -1,0 +1,6 @@
+---
+- name: Create /docker-volumes
+  file:
+    path: /docker-volumes
+    state: directory
+  become: True

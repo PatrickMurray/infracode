@@ -1,0 +1,6 @@
+---
+- name: Install docker
+  package:
+    name: docker
+    state: latest
+  become: True

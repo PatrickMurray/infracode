@@ -1,0 +1,19 @@
+---
+- name: Update apt
+  apt:
+    update_cache: True
+    autoclean: True
+    upgrade: True
+  become: True
+
+- name: Install apt-transport-https
+  package:
+    name: apt-transport-https
+    state: latest
+  become: True
+
+- name: Install unattended-upgrades
+  package:
+    name: unattended-upgrades
+    state: latest
+  become: True

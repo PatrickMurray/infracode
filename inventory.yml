@@ -1,0 +1,15 @@
+---
+all:
+  children:
+    nuc:
+      hosts:
+        192.168.0.246:
+      vars:
+        ansible_user: patrick
+    cluster:
+      hosts:
+        192.168.0.194:
+        192.168.0.233:
+        192.168.0.234:
+      vars:
+        ansible_user: pi

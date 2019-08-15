@@ -1,0 +1,6 @@
+---
+- name: Install sudo
+  package:
+    name: sudo
+    state: latest
+  become: True
