@@ -1,6 +1,0 @@
----
-- name: Install Mozilla CA certificates
-  package:
-    name: ca-certificates
-    state: latest
-  become: True
