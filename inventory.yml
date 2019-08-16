@@ -3,7 +3,7 @@ all:
   children:
     nuc:
       hosts:
-        192.168.0.246:
+        192.168.0.155:
       vars:
         ansible_user: patrick
     cluster:

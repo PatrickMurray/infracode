@@ -1,6 +1,6 @@
 ---
 - hosts: nuc
-  var_files:
+  vars_files:
     - secrets.yml
   roles:
     - common
@@ -10,7 +10,7 @@
 
 
 - hosts: cluster
-  var_files:
+  vars_files:
     - secrets.yml
   roles:
     - common

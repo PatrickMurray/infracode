@@ -1,6 +1,24 @@
 ---
-- name: Install docker
+- name: Add docker PGP public key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+  become: True
+
+- name: Add docker apt repository
+  apt_repository:
+    repo: "deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+    state: present
+    update_cache: True
+  become: True
+
+- name: Install docker-ce
   package:
-    name: docker
+    name: docker-ce
+    state: latest
+  become: True
+
+- name: Install python-docker
+  package:
+    name: python-docker
     state: latest
   become: True

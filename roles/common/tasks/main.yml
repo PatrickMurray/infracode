@@ -8,4 +8,6 @@
     - apt
     - users
     - sudo
+    - ca_certificates
     - ntp
+    - python
