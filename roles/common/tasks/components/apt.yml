@@ -2,8 +2,9 @@
 - name: Update apt
   apt:
     update_cache: True
-    autoclean: True
     upgrade: True
+    autoclean: True
+    autoremove: True
   become: True
 
 - name: Install apt-transport-https

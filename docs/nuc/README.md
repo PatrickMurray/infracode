@@ -4,14 +4,14 @@
 ## Setup
 
 
-### Local
+### Workstation
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub patrick@HOSTNAME
 ```
 
 
-### Remote
+### Local
 
 ```bash
 su -
@@ -23,7 +23,7 @@ apt-get -y install python
 ```
 
 
-### Ansible
+### Workstation
 
 ```bash
 ansible-playbook main.yml
