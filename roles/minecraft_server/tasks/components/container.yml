@@ -1,0 +1,17 @@
+---
+- name: Create minecraft-server docker container
+  docker_container:
+    name: minecraft-server
+    image: itzg/minecraft-server
+    state: started
+    restart: True
+    network_mode: host
+    restart_policy: always
+    ports:
+      - "25565:25565"
+    env:
+      VERSION: "{{ minecraft_server.version }}"
+      EULA: "{{ minecraft_server.eula }}"
+    volumes:
+      - "{{ docker.volume_path }}/minecraft_server:/data"
+  become: True

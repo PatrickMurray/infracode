@@ -6,6 +6,7 @@ all:
         192.168.0.156:
       vars:
         ansible_user: patrick
+
     cluster:
       hosts:
         192.168.0.194:
@@ -13,3 +14,9 @@ all:
         192.168.0.234:
       vars:
         ansible_user: pi
+
+    minecraft:
+      hosts:
+        192.168.0.93:
+      vars:
+        ansible_user: patrick

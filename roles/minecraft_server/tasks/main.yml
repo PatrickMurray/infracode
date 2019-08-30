@@ -5,9 +5,5 @@
   loop_control:
     loop_var: component
   loop:
-    - apt
-    - users
-    - sudo
-    - ntp
-    - python
-    - ca_certificates
+    - volumes
+    - container

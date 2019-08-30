@@ -1,0 +1,6 @@
+---
+- name: Install ca-certificats
+  package:
+    name: ca-certificates
+    state: latest
+  become: True

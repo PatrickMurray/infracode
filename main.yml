@@ -1,17 +1,26 @@
 ---
-- hosts: nuc
+#- hosts: nuc
+#  vars_files:
+#    - secrets.yml
+#  roles:
+#    - common
+#    - docker
+##   - influxdb
+##    - grafana
+
+
+#- hosts: cluster
+#  vars_files:
+#    - secrets.yml
+#  roles:
+#    - common
+#    - docker
+
+
+- hosts: minecraft
   vars_files:
     - secrets.yml
   roles:
     - common
     - docker
-#   - influxdb
-#    - grafana
-
-
-- hosts: cluster
-  vars_files:
-    - secrets.yml
-  roles:
-    - common
-    - docker
+    - minecraft_server

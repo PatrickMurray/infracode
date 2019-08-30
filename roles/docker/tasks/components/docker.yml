@@ -4,36 +4,13 @@
     url: https://download.docker.com/linux/debian/gpg
   become: True
 
+
 - name: Add docker APT repository
   apt_repository:
     repo: "deb https://download.docker.com/linux/{{ ansible_lsb.id | lower }} {{ ansible_distribution_release }} stable"
     state: present
     update_cache: True
   become: True
-  when: (ansible_lsb.id != "Raspbian") and (ansible_distribution_release != "buster")
-
-
-
-# TODO
-# Due to the current docker release for Raspberry Pi/Debian Buster bring broken
-# we need to install the Debian stretch release - this should be removed once
-# the underlying issue is fixed
-- name: Add docker APT repository
-  apt_repository:
-    repo: "deb https://download.docker.com/linux/rasbian stretch stable"
-    state: absent
-    update_cache: True
-  become: True
-  when: (ansible_lsb.id == "Raspbian") and (ansible_distribution_release == "buster")
-
-- name: Add docker APT repository
-  apt_repository:
-    repo: "deb https://download.docker.com/linux/raspbian stretch stable"
-    state: present
-    update_cache: True
-  become: True
-  when: (ansible_lsb.id == "Raspbian") and (ansible_distribution_release == "buster")
-
 
 
 - name: Install docker-ce
@@ -42,12 +19,6 @@
     state: latest
   become: True
 
-#- name: Start docker service
-#  service:
-#    name: docker
-#    state: started
-#    enabled: True
-#  become: True
 
 - name: Install python-docker
   package:
