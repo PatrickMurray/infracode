@@ -17,6 +17,10 @@
   package:
     name: docker-ce
     state: latest
+    # As of 2019-10-31, necessary in order to install docker-ce on the
+    # Raspberry Pi 4 due to their kernel's inability to support aufs-dkms and
+    # docker-ce's dependency on it
+    install_recommends: False
   become: True
 
 

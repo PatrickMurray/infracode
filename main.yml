@@ -9,12 +9,12 @@
     - grafana
 
 
-#- hosts: cluster
-#  vars_files:
-#    - secrets.yml
-#  roles:
-#    - common
-##    - docker
+- hosts: cluster
+  vars_files:
+    - secrets.yml
+  roles:
+    - common
+    - docker
 
 
 #- hosts: minecraft
