@@ -1,5 +1,5 @@
 ---
-- name: Create grafana docker container ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+- name: Create grafana docker container
   docker_container:
     name: grafana
     image: grafana/grafana
