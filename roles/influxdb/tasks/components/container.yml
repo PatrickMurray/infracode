@@ -3,10 +3,8 @@
   docker_container:
     name: influxdb
     image: influxdb
-    state: started
-    restart: True
     ports:
-      - "8086:8086"
+      - "{{ influxdb.port }}:8086"
     env:
       INFLUXDB_DB: "{{ influxdb.database }}"
       INFLUXDB_ADMIN_USER: "{{ influxdb.admin.username }}"
@@ -16,5 +14,5 @@
       INFLUXDB_WRITE_USER: "{{ influxdb.write.username }}"
       INFLUXDB_WRITE_PASSWORD: "{{ influxdb.write.password }}"
     volumes:
-      - "{{ docker.volume_path }}/influxdb:/var/lib/influxdb"
+      - influxdb:/var/lib/influxdb
   become: True

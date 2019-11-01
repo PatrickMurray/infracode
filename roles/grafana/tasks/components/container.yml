@@ -1,0 +1,12 @@
+---
+- name: Create grafana docker container ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    ports:
+      - "{{ grafana.port }}:3000"
+    env:
+      GF_SECURITY_ADMIN_PASSWORD: "{{ grafana.admin.password }}"
+    volumes:
+      - grafana:/var/lib/grafana
+  become: True

@@ -1,0 +1,5 @@
+---
+- name: "Create grafana docker volume"
+  docker_volume:
+    name: grafana
+  become: True

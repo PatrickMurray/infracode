@@ -1,6 +1,0 @@
----
-- name: "Create {{ docker.volume_path }}"
-  file:
-    path: "{{ docker.volume_path }}"
-    state: directory
-  become: True
