@@ -4,3 +4,9 @@
     name: python
     state: latest
   become: True
+
+- name: Install python-pip
+  package:
+    name: python-pip
+    state: latest
+  become: True

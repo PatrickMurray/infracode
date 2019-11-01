@@ -1,0 +1,29 @@
+---
+- name: Create read user and grant access
+  influxdb_user:
+    hostname: "{{ influxdb.hostname }}"
+    username: "{{ influxdb.admin.username }}"
+    password: "{{ influxdb.admin.password }}"
+
+    user_name: "{{ influxdb.read.username }}"
+    user_password: "{{ influxdb.read.password }}"
+
+# Not supported until Ansible 2.8
+#    grants:
+#      - database: "{{ influxdb.database }}"
+#        privilege: READ
+
+
+
+- name: Create write user and grant access
+  influxdb_user:
+    hostname: "{{ influxdb.hostname }}"
+    username: "{{ influxdb.admin.username }}"
+    password: "{{ influxdb.admin.password }}"
+
+    user_name: "{{ influxdb.write.username }}"
+    user_password: "{{ influxdb.write.password }}"
+
+#    grants:
+#      - database: "{{ influxdb.database }}"
+#        privilege: WRITE

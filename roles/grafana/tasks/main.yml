@@ -7,3 +7,5 @@
   loop:
     - volumes
     - container
+    - datasources
+    - dashboards

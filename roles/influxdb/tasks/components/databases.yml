@@ -1,0 +1,7 @@
+---
+- name: "Create {{ influxdb.database }} influxdb database"
+  influxdb_database:
+    hostname: "{{ influxdb.hostname }}"
+    username: "{{ influxdb.admin.username }}"
+    password: "{{ influxdb.admin.password }}"
+    database_name: "{{ influxdb.database }}"

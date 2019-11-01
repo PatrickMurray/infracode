@@ -1,0 +1,6 @@
+---
+- name: Install influxdb pip module
+  pip:
+    name: influxdb
+    state: latest
+  become: True

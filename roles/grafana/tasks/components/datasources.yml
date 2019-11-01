@@ -1,0 +1,18 @@
+---
+- name: Create influxdb datasource
+  grafana_datasource:
+    name: influxdb
+
+    grafana_url: "{{ grafana.protocol }}://{{ grafana.url }}:{{ grafana.port }}"
+    grafana_user: "{{ grafana.admin.username }}"
+    grafana_password: "{{ grafana.admin.password }}"
+    
+    url: "{{ influxdb.protocol }}://{{ influxdb.hostname }}:{{ influxdb.port }}"
+    
+    ds_type: influxdb
+    database: "{{ influxdb.database }}"
+
+    user: "{{ influxdb.read.username }}"
+    password: "{{ influxdb.read.password }}"
+    
+    is_default: True
