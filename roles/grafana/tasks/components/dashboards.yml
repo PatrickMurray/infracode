@@ -1,1 +1,8 @@
 ---
+- name: Include components
+  include_tasks:
+    file: "dashboards/{{ dashboard }}.yml"
+  loop_control:
+    loop_var: dashboard
+  loop:
+    - host_metrics

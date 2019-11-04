@@ -1,0 +1,12 @@
+{
+	"title": "System Metrics",
+	"services": {
+		"filter": {
+			"list": [],
+			"time": {
+				"from": "now-15m",
+				"to": "now"
+			}
+		}
+	}
+}
