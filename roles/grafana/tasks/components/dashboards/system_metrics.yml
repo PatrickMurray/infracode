@@ -1,0 +1,28 @@
+---
+- name: Create temporary file
+  tempfile:
+    state: file
+    suffix: grafana_dashboard
+  register: dashboard_file
+
+
+- name: Copy dashboard JSON
+  copy: 
+    src: dashboards/system_metrics.json
+    dest: "{{ dashboard_file.path }}"
+
+
+#- name: Create system_metrics dashboard
+#  grafana_dashboard:
+#    grafana_url: "{{ grafana.protocol }}://{{ grafana.url }}:{{ grafana.port }}"
+#    grafana_user: "{{ grafana.admin.username }}"
+#    grafana_password: "{{ grafana.admin.password }}"
+#
+#    path: "{{ dashboard_file.path }}"
+#    overwrite: True
+
+- name: Remove temporary file
+  file:
+    path: "{{ dashboard_file.path }}"
+    state: absent
+

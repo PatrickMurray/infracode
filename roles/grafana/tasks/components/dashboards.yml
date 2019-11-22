@@ -5,4 +5,4 @@
   loop_control:
     loop_var: dashboard
   loop:
-    - host_metrics
+    - system_metrics
