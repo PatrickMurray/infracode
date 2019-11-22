@@ -1,0 +1,13 @@
+---
+- name: Create telegraf docker container
+  docker_container:
+    name: telegraf
+    image: telegraf
+    restart: True
+    ports:
+      - "{{ telegraf.udp.port }}:8092"
+      - "{{ telegraf.tcp.port }}:8094"
+      - "{{ telegraf.statsd.port }}:8125"
+    volumes:
+      - telegraf:/etc/telegraf
+  become: True

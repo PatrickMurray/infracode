@@ -1,0 +1,13 @@
+---
+- name: Create telegraf docker volume
+  docker_volume:
+    name: telegraf
+  become: True
+  register: telegraf_volume
+
+
+- name: Copy telegraf configuration file to volume
+  template:
+    src: telegraf.conf.j2
+    dest: "{{ telegraf_volume.ansible_facts.docker_volume.Mountpoint }}/telegraf.conf"
+  become: True
