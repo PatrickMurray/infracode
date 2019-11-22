@@ -1,5 +1,30 @@
 ---
 all:
+  hosts:
+    192.168.0.156:
+      hostname: nuc
+      tags:
+        hostname: nuc
+    192.168.0.157:
+      hostname: node0
+      tags:
+        hostname: node0
+        environment: preprod
+    192.168.0.158:
+      hostname: node1
+      tags:
+        hostname: node1
+        environment: preprod
+    192.168.0.159:
+      hostname: node2
+      tags:
+        hostname: node2
+        environment: preprod
+    192.168.0.160:
+      hostname: node3
+      tags:
+        hostname: node3
+        environment: preprod
   children:
     nuc:
       hosts:

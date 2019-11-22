@@ -5,6 +5,7 @@
   loop_control:
     loop_var: component
   loop:
+    - hostname
     - apt
     - users
     - sudo

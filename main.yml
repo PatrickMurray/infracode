@@ -6,6 +6,7 @@
     - common
     - docker
     - influxdb
+    - telegraf
     - grafana
     - jenkins
 
