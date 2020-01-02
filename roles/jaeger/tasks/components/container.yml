@@ -1,0 +1,14 @@
+---
+- name: Create jaeger docker container
+  docker_container:
+    name: jaeger
+    image: jaegertracing/all-in-one
+    ports:
+      - "{{ jaeger.zipkin_thrift.port }}:5775/udp"
+      - "{{ jaeger.jaeger_thrift.port }}:6831/udp"
+      - "{{ jaeger.jaeger_thrift_binary.port }}:6832/udp"
+      - "{{ jaeger.configuration.port }}:5778"
+      - "{{ jaeger.frontend.port }}:16686"
+      - "{{ jaeger.jaeger_collector.port }}:14268"
+      - "{{ jaeger.zipkin_collector.port }}:9411"
+  become: True
