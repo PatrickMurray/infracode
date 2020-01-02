@@ -8,6 +8,7 @@
     - influxdb
     - telegraf
     - grafana
+    - jaeger
     - jenkins
 
 
