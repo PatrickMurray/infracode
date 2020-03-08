@@ -5,5 +5,5 @@
   loop_control:
     loop_var: component
   loop:
-    - volumes
+    - volume
     - container

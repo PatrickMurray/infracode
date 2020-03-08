@@ -1,4 +1,4 @@
-# Minecraft
+# NUC
 
 
 ## Setup
@@ -17,7 +17,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub patrick@HOSTNAME
 su -
 
 apt-get -y install sudo
-echo "patrick ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/patrick
+echo "patrick ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/patrick
 
 apt-get -y install python
 ```

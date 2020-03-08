@@ -1,5 +1,0 @@
----
-- name: Create jenkins docker volume
-  docker_volume:
-    name: jenkins
-  become: True

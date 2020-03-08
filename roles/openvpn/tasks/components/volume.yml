@@ -1,0 +1,5 @@
+---
+- name: Create openvpn docker volume
+  docker_volume:
+    name: openvpn
+  become: True

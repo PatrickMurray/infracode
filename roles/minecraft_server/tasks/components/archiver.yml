@@ -1,0 +1,14 @@
+---
+- name: "Copy archive script to {{ minecraft_server.archive.script }}"
+  template:
+    src: minecraft_archiver.sh
+    dest: "{{ minecraft_server.archive.script }}"
+    mode: 0755
+  become: True
+
+
+- name: Create backup cron
+  cron:
+    name: minecraft_archiver
+    job: "{{ minecraft_server.archive.script }} -d -a"
+    special_time: "{{ minecraft_server.archive.frequency }}"

@@ -1,6 +1,5 @@
 ---
-- name: "Create {{ docker.volume_path}}/minecraft_server"
-  file:
-    path: "{{ docker.volume_path }}/minecraft_server"
-    state: directory
+- name: Create minecraft docker volume
+  docker_volume:
+    name: minecraft
   become: True

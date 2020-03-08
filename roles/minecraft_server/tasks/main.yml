@@ -6,4 +6,5 @@
     loop_var: component
   loop:
     - volumes
+    - archiver
     - container

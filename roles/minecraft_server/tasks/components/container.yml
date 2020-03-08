@@ -13,5 +13,5 @@
       VERSION: "{{ minecraft_server.version }}"
       EULA: "{{ minecraft_server.eula }}"
     volumes:
-      - "{{ docker.volume_path }}/minecraft_server:/data"
+      - "minecraft:/data"
   become: True

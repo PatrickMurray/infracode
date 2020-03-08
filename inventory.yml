@@ -1,48 +1,15 @@
 ---
 all:
   hosts:
-    192.168.0.156:
-      hostname: nuc
+    192.168.0.93:
+#    100.8.92.79:
+      hostname: jumpbox
       tags:
-        hostname: nuc
-    192.168.0.157:
-      hostname: node0
-      tags:
-        hostname: node0
-        environment: preprod
-    192.168.0.158:
-      hostname: node1
-      tags:
-        hostname: node1
-        environment: preprod
-    192.168.0.159:
-      hostname: node2
-      tags:
-        hostname: node2
-        environment: preprod
-    192.168.0.160:
-      hostname: node3
-      tags:
-        hostname: node3
-        environment: preprod
+        hostname: jumpbox
   children:
-    nuc:
-      hosts:
-        192.168.0.156:
-      vars:
-        ansible_user: patrick
-
-    cluster:
-      hosts:
-        192.168.0.157:
-        192.168.0.158:
-        192.168.0.159:
-        192.168.0.160:
-      vars:
-        ansible_user: pi
-
-    minecraft:
+    jumpbox:
       hosts:
         192.168.0.93:
+#        100.8.92.79:
       vars:
         ansible_user: patrick
