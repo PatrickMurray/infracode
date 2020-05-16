@@ -1,0 +1,105 @@
+---
+- name: Create bitwarden/setup docker container
+  docker_container:
+    name: bitwarden-setup
+    image: bitwarden/setup
+    state: started
+    restart: True
+  become: True
+#    ports:
+#      - ":"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+
+
+- name: Create bitwarden/web docker container
+  docker_container:
+    name: bitwarden-web
+    image: bitwarden/web
+    state: started
+    restart: True
+    ports:
+      - "80:80"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+  become: True
+
+
+- name: Create bitwarden/nginx docker container
+  docker_container:
+    name: bitwarden-nginx
+    image: bitwarden/nginx
+    state: started
+    restart: True
+    ports:
+      - "80:80"
+      - "443:443"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+  become: True
+
+
+- name: Create bitwarden/api docker container
+  docker_container:
+    name: bitwarden-api
+    image: bitwarden/api
+    state: started
+    restart: True
+    ports:
+      - "80:80"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+  become: True
+
+
+- name: Create bitwarden/mysql docker container
+  docker_container:
+    name: bitwarden-mysql
+    image: bitwarden/mysql
+    state: started
+    restart: True
+    ports:
+      - "1433:1433"
+ #   env:
+ #     TODO: todo
+ #   volumes:
+ #     - "minecraft:/data"
+  become: True
+
+
+- name: Create bitwarden/attachments docker container
+  docker_container:
+    name: bitwarden-attachments
+    image: bitwarden/attachments
+    state: started
+    restart: True
+    ports:
+      - "80:80"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+  become: True
+
+
+- name: Create bitwarden/identity docker container
+  docker_container:
+    name: bitwarden-identity
+    image: bitwarden/identity
+    state: started
+    restart: True
+    ports:
+      - "80:80"
+#    env:
+#      TODO: todo
+#    volumes:
+#      - "minecraft:/data"
+  become: True

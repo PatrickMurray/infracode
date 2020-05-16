@@ -6,5 +6,6 @@
     - common
     - fail2ban
     - docker
+    - bitwarden
     - minecraft_server
 #    - openvpn
