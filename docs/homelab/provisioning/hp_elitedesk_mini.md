@@ -167,7 +167,26 @@ Engine main menu.
 22) Select the `United States` Debian archive mirror and press `Enter`.
 23) Select `deb.debian.org` and press `Enter`.
 24) Leave the HTTP proxy field empty and press `Enter`.
-25) 
+25) When prompted to opt-in the package usage survey, select `No` and press
+    `Enter`.
+26) When prompted to install select software, make the following
+    removals/selections, select `Continue` and press `Enter`.
+    * Removals:
+      * `Debian desktop environment`
+      * `print server`
+      * `standard system utilities`
+    * Selections:
+      * `SSH server`
+27) When prompted to install the GRUB bootloader on disk, select `Yes` and
+    press `Enter`.
+28) Select the desired hard drive and press `Enter`.
+
+The installation is now complete. Select `Continue` and press `Enter`. The
+system will now reboot and you will be prompted to enter the disk decryption
+passphrase. Do not enter the passphrase using your keyboard as we will use this
+opportunity to test the Intel Management Engine's ability to remote into the
+unbooted operating system and enter the disk decryption passphrase remotely.
+
 
 ### Configuration Management
 
