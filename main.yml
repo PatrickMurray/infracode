@@ -1,10 +1,27 @@
 ---
-- hosts: jumpbox
+#nodes
+- hosts: all
   vars_files:
     - secrets.yml
   roles:
     - common
     - fail2ban
     - docker
+    - telegraf
+
+
+- hosts: monitoring
+  vars_files:
+    - secrets.yml
+  collections:
+    - community.grafana
+  roles:
+    - influxdb
+    - grafana
+
+
+- hosts: jumpbox
+  vars_files:
+    - secrets.yml
+  roles:
     - minecraft_server
-#    - openvpn

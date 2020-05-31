@@ -1,7 +1,17 @@
 ---
+- name: "Wait until influxdb is available on port {{ influxdb.port }}"
+  wait_for:
+    port: "{{ influxdb.port }}"
+
+
 - name: "Create {{ influxdb.database }} influxdb database"
   influxdb_database:
     hostname: "{{ influxdb.hostname }}"
+    port: "{{ influxdb.port }}"
+    
+    # This is necessary due to a bug in the Ansible influxdb module
+    udp_port: 4444
+    
     username: "{{ influxdb.admin.username }}"
     password: "{{ influxdb.admin.password }}"
     database_name: "{{ influxdb.database }}"

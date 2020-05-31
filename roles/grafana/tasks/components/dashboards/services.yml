@@ -1,0 +1,12 @@
+---
+- name: Include components
+  include_tasks:
+    file: "services/{{ service }}.yml"
+  loop_control:
+    loop_var: service
+  loop:
+    - grafana
+    - influxdb
+    - telegraf
+
+    - minecraft

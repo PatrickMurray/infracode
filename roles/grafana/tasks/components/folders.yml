@@ -1,0 +1,9 @@
+---
+- name: Include components
+  include_tasks:
+    file: "folders/{{ folder }}.yml"
+  loop_control:
+    loop_var: folder
+  loop:
+    - system
+    - service

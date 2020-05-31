@@ -1,15 +1,29 @@
 ---
 all:
   hosts:
-    192.168.0.93:
-#    100.8.92.79:
+    10.1.10.3:
+      hostname: node0
+      tags:
+        hostname: node0
+    10.1.10.4:
+      hostname: node1
+      tags:
+        hostname: node1
+    10.1.10.11:
       hostname: jumpbox
       tags:
         hostname: jumpbox
   children:
-    jumpbox:
-      hosts:
-        192.168.0.93:
-#        100.8.92.79:
-      vars:
-        ansible_user: patrick
+     nodes:
+       hosts:
+         10.1.10.3:
+         10.1.10.4:
+         10.1.10.11:
+       vars:
+         ansible_user: ansible
+     monitoring:
+       hosts:
+         10.1.10.3:
+     jumpbox:
+       hosts:
+         10.1.10.11:

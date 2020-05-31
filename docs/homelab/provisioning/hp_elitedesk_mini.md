@@ -101,9 +101,6 @@ administration.
 
 Once complete, exit the BIOS by pressing `F10` to `Save Changes and Exit`.
 
-
-#### Configuration
-
 After rebooting the machine, hold down `Ctrl+P` to enter the Intel Management
 Engine main menu.
 
@@ -117,6 +114,27 @@ Engine main menu.
    * *NOTE*: We will be changing this password later within MeshCommander when
      we configure other settings.
 4) Select `MEBx Exit` and press `Enter`, press `Y` at the confirmation prompt.
+
+
+#### Configuration
+
+Locally run the following command in a terminal to start the MeshCommander
+server:
+
+```bash
+meshcommander
+```
+
+In a web browser, navigate to `http://localhost:3000/`. Click `Add Computer...`
+and enter the following information about the system:
+
+1) A human readable name; for example, `node0`
+2) A group name to which the system will be associated; for example, `homelab`;
+3) The system's reachable network address;
+4) Under the `Auth / Security` section, initially select `Digest / None` and
+   enter the credentials that were set during the the Intel ME setup.
+
+TODO
 
 
 ### OS Installation
@@ -190,3 +208,21 @@ unbooted operating system and enter the disk decryption passphrase remotely.
 
 ### Configuration Management
 
+
+#### Ansible User
+
+From a root shell on the system, run the following commands:
+
+```bash
+useradd --create-home ansible
+passwd ansible
+apt-get -y install sudo python
+echo "ansible ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ansible
+userdel --remove DEFAULT_USERNAME
+```
+
+### Locally
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub ansible@HOSTNAME
+```

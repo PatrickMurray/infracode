@@ -6,3 +6,4 @@
     loop_var: dashboard
   loop:
     - system_metrics
+    - services

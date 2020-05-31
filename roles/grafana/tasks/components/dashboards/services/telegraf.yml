@@ -1,25 +1,28 @@
 ---
-- name: Create temporary file
+- name: Create temporary service file
   tempfile:
     state: file
     suffix: grafana_dashboard
   register: dashboard_file
 
 
-- name: Copy dashboard JSON
-  copy: 
-    src: dashboards/system_metrics.json
+- name: Create service dashboard JSON
+  template:
+    src: service.json.j2
     dest: "{{ dashboard_file.path }}"
+  vars:
+    service_name: Telegraf
+    container_name: telegraf
 
 
-- name: Create system_metrics dashboard
+- name: Create service metric dashboard
   community.grafana.grafana_dashboard:
     grafana_url: "{{ grafana.protocol }}://{{ grafana.url }}:{{ grafana.port }}"
     grafana_user: "{{ grafana.admin.username }}"
     grafana_password: "{{ grafana.admin.password }}"
 
     path: "{{ dashboard_file.path }}"
-    folder: System
+    folder: Service
     overwrite: True
 
 
@@ -27,4 +30,3 @@
   file:
     path: "{{ dashboard_file.path }}"
     state: absent
-

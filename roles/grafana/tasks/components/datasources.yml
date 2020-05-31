@@ -1,4 +1,9 @@
 ---
+- name: "Wait until grafana is available on port {{ grafana.port }}"
+  wait_for:
+    port: "{{ grafana.port }}"
+
+
 - name: Create influxdb datasource
   grafana_datasource:
     name: influxdb

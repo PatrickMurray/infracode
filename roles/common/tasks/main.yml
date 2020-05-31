@@ -9,6 +9,7 @@
     - apt
     - users
     - sudo
+    - openssh_server
     - ntp
     - python
     - ca_certificates

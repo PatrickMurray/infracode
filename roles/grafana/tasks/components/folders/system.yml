@@ -1,0 +1,8 @@
+---
+- name: Create grafana System folder
+  community.grafana.grafana_folder:
+    grafana_url: "{{ grafana.protocol }}://{{ grafana.url }}:{{ grafana.port }}"
+    grafana_user: "{{ grafana.admin.username }}"
+    grafana_password: "{{ grafana.admin.password }}"
+    
+    name: System

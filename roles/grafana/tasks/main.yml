@@ -8,4 +8,5 @@
     - volumes
     - container
     - datasources
+    - folders
     - dashboards
