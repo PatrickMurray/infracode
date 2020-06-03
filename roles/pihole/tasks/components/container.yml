@@ -1,0 +1,18 @@
+---
+- name: Create pihole docker container
+  docker_container:
+    name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "{{ pihole.dns.udp.port }}:53/udp"
+      - "{{ pihole.dns.tcp.port }}:53/tcp"
+      - "{{ pihole.web.http.port }}:80/tcp"
+      - "{{ pihole.web.https.port }}:443/tcp"
+    env:
+      TZ: "{{ pihole.timezone }}"
+      WEBPASSWORD: "{{ pihole.web.password }}"
+      DNS1: "{{ pihole.dns_forwarder.primary }}"
+      DNS2: "{{ pihole.dns_forwarder.secondary }}"
+    volumes:
+      - pihole:/etc/pihole
+  become: True

@@ -20,6 +20,13 @@
     - grafana
 
 
+- hosts: dns
+  vars_files:
+    - secrets.yml
+  roles:
+    - pihole
+
+
 - hosts: jumpbox
   vars_files:
     - secrets.yml

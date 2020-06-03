@@ -1,0 +1,5 @@
+---
+- name: Create pihole docker volume
+  docker_volume:
+    name: pihole
+  become: True

@@ -9,4 +9,5 @@
     - influxdb
     - telegraf
 
+    - dns
     - minecraft

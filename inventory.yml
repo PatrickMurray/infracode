@@ -24,6 +24,9 @@ all:
      monitoring:
        hosts:
          10.1.10.3:
+     dns:
+       hosts:
+         10.1.10.4:
      jumpbox:
        hosts:
          10.1.10.11:
