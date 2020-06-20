@@ -27,6 +27,9 @@ all:
      dns:
        hosts:
          10.1.10.4:
-     jumpbox:
+     vpn:
+       hosts:
+         10.1.10.4:
+     minecraft:
        hosts:
          10.1.10.11:

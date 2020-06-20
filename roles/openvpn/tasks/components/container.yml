@@ -1,22 +1,16 @@
 ---
-- name: Generate openvpn docker configuration
+- name: Create openvpn docker container
   docker_container:
-    name: openvpn_generate_config
-    image: kylemanna/openvpn
-    auto_remove: True
-    interactive: True
-    command: ovpn_genconfig
-    log_driver: none
-    userns_mode: "udp://{{ openvpn.url }}"
+    name: openvpn
+    image: linuxserver/openvpn-as:latest
+    state: started
+    ports:
+      - "{{ openvpn.web.https.port }}:943/tcp"
+      - "{{ openvpn.udp.port }}:1194/udp"
+    env:
+      TZ: "{{ openvpn.timezone }}"
+    capabilities:
+      - NET_ADMIN
     volumes:
-      - openvpn:/etc/openvpn
+      - openvpn:/config
   become: True
-
-#    privileged: True
-#    state: started
-#    ports:
-#      - "{{ openvpn.udp.port }}:1194/udp"
-#    env:
-#      TZ: "{{ openvpn.timezone }}"
-#      DEBUG: "1"
-#  become: True

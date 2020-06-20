@@ -27,7 +27,14 @@
     - pihole
 
 
-- hosts: jumpbox
+- hosts: vpn
+  vars_files:
+    - secrets.yml
+  roles:
+    - openvpn
+
+
+- hosts: minecraft
   vars_files:
     - secrets.yml
   roles:
