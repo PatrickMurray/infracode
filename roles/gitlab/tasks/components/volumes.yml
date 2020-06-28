@@ -1,0 +1,17 @@
+---
+- name: Create gitlab_config docker volume
+  docker_volume:
+    name: gitlab_config
+  become: True
+
+
+- name: Create gitlab_logs docker volume
+  docker_volume:
+    name: gitlab_logs
+  become: True
+
+
+- name: Create gitlab_data docker volume
+  docker_volume:
+    name: gitlab_data
+  become: True

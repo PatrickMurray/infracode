@@ -27,11 +27,18 @@
     - pihole
 
 
-- hosts: vpn
+#- hosts: vpn
+#  vars_files:
+#    - secrets.yml
+#  roles:
+#    - openvpn
+
+
+- hosts: git
   vars_files:
     - secrets.yml
   roles:
-    - openvpn
+    - gitlab
 
 
 - hosts: minecraft

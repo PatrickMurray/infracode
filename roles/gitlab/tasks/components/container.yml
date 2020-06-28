@@ -1,0 +1,18 @@
+---
+- name: Create gitlab docker container
+  docker_container:
+    name: gitlab
+    image: gitlab/gitlab-ce:latest
+    hostname: "{{ gitlab.domain }}"
+    env:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url "https://{{ gitlab.domain }}"
+    ports:
+      - "{{ gitlab.ssh.port }}:22"
+      - "{{ gitlab.http.port }}:80"
+      - "{{ gitlab.https.port }}:443"
+    volumes:
+      - gitlab_config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
+  become: True
