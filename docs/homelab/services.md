@@ -16,4 +16,5 @@
 | GitLab    | 10.1.10.4  |  2022 | ssh      |
 | PiHole    | 10.1.10.4  |  2080 | http     |
 | PiHole    | 10.1.10.4  |  2443 | https    |
+| BitWarden | 10.1.10.4  |  3080 | http     |
 | Minecraft | 10.1.10.11 | 25565 | tcp      |

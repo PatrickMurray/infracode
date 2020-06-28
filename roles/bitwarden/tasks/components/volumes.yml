@@ -1,0 +1,5 @@
+---
+- name: Create bitwarden_data docker volume
+  docker_volume:
+    name: bitwarden_data
+  become: True

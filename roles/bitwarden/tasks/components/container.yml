@@ -1,0 +1,12 @@
+---
+- name: Create bitwarden docker container
+  docker_container:
+    name: bitwarden
+    image: bitwardenrs/server:latest
+    env:
+      SIGNUPS_ALLOWED: "false"
+    ports:
+      - "{{ bitwarden.http.port }}:80"
+    volumes:
+      - bitwarden_data:/data
+  become: True

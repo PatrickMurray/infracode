@@ -41,6 +41,13 @@
     - gitlab
 
 
+- hosts: password_manager
+  vars_files:
+    - secrets.yml
+  roles:
+    - bitwarden
+
+
 - hosts: minecraft
   vars_files:
     - secrets.yml
