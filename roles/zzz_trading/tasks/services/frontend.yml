@@ -1,0 +1,27 @@
+---
+- name: Create temp directory for service source
+  tempfile:
+    state: directory
+    prefix: build_
+  register: build
+
+
+- name: Fetch source code
+  git:
+    repo: "{{ frontend.repository }}"
+    dest: "{{ build.path }}"
+
+
+- debug:
+    var: build.path
+
+
+#- name: Build docker image
+#  docker_image:
+#    build:
+#      pull: True
+#      path: "{{ build.path }}"
+#    name: "{{ docker_registry.url }}:{{ docker_registry.port }}/zzz-trading/frontend"
+#    tag: 0.0.0
+#    push: True
+#    source: build

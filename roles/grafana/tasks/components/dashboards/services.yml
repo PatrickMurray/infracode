@@ -11,5 +11,8 @@
 
     - dns
     - minecraft
-    - gitlab
     - bitwarden
+    
+    # ZZZ-Trading
+    - gitlab
+    - docker_registry

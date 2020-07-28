@@ -1,0 +1,20 @@
+---
+- name: Create ~/.ssh directory
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: 0700
+
+
+- name: Copy SSH public key
+  copy:
+    src: files/zzz_trading_ecdsa.pub
+    dest: ~/.ssh/zzz_trading_ecdsa.pub
+    mode: 0644
+
+
+- name: Copy SSH private key
+  copy:
+    src: files/zzz_trading_ecdsa
+    dest: ~/.ssh/zzz_trading_ecdsa
+    mode: 0600

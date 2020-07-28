@@ -1,0 +1,10 @@
+---
+- name: Create docker_registry docker container
+  docker_container:
+    name: docker_registry
+    image: registry:latest
+    ports:
+      - "{{ docker_registry.port }}:5000"
+    volumes:
+      - docker_registry:/var/lib/registry
+  become: True
