@@ -1,0 +1,21 @@
+---
+- name: Create haproxy-certbot docker container
+  docker_container:
+    name: haproxy-certbot
+    image: nmarus/haproxy-certbot
+    capabilities: NET_ADMIN
+    restart: True
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - haproxy_config:/config:ro
+      - haproxy_certbot:/etc/letsencrypt
+      - haproxy_certs:/usr/local/etc/haproxy/certs.d
+  become: True
+
+
+- name: Request certbot-certificate
+  command:
+    cmd: docker exec haproxy-certbot certbot-certonly --preferred-challenges http --domain 'grafana.murray.systems' --email 'patrick+letsencrypt@murray.systems'
+  become: True

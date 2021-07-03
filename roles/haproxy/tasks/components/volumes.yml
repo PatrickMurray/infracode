@@ -1,0 +1,25 @@
+---
+- name: Create haproxy_config docker volume
+  docker_volume:
+    name: haproxy_config
+  register: haproxy_config_volume
+  become: True
+
+
+- name: Create haproxy_certbot docker volume
+  docker_volume:
+    name: haproxy_certbot
+  become: True
+
+
+- name: Create haproxy_certs docker volume
+  docker_volume:
+    name: haproxy_certs
+  become: True
+
+
+- name: Drop haproxy.cfg in docker volume
+  copy:
+    src: haproxy.cfg
+    dest: "{{ haproxy_config_volume.volume.Mountpoint }}/haproxy.cfg"
+  become: True

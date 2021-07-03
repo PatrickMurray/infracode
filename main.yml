@@ -34,6 +34,13 @@
 #    - openvpn
 
 
+- hosts: reverse_proxy
+  vars_files:
+    - secrets.yml
+  roles:
+    - haproxy
+
+
 - hosts: password_manager
   vars_files:
     - secrets.yml
@@ -67,8 +74,8 @@
     - docker_registry
 
 
-- hosts: zzz_trading
-  vars_files:
-    - secrets.yml
-  roles:
-    - zzz_trading
+#- hosts: zzz_trading
+#  vars_files:
+#    - secrets.yml
+#  roles:
+#    - zzz_trading
